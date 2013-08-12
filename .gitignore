@@ -1,0 +1,7 @@
+*~
+*#
+elpa
+auto-save-list
+.mc-lists.el
+lib/markdown-mode/.gitignore
+lib/markdown-mode/tests/*
