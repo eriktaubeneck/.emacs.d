@@ -16,7 +16,9 @@
 
 ;; packages I use
 (defvar user-packages
-  '(jinja2-mode
+  '(column-marker
+    fill-column-indicator
+    jinja2-mode
     markdown-mode
     multiple-cursors
     nyan-mode

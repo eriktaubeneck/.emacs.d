@@ -43,6 +43,10 @@
 (nyan-mode t)
 (nyan-start-animation)
 
+(require 'fill-column-indicator)
+
+(global-set-key [?\C-c ?m] 'column-marker-1)
+
 (setq dir default-directory)
 (find-file (expand-file-name "~/notes.md"))
 (setq default-directory dir)
