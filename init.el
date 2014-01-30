@@ -29,6 +29,10 @@
 ;; Bind return to automagically indent.
 (global-set-key (kbd "RET") 'newline-and-indent)
 
+;; Bind M-p/M-n to scroll-down/scroll-up
+(global-set-key (kbd "M-p") 'scroll-down)
+(global-set-key (kbd "M-n") 'scroll-up)
+
 ;; Specific settings
 (require 'package-manage)
 (require 'defaults)
