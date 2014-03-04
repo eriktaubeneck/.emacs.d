@@ -6,8 +6,9 @@
 (defvar melpa '("melpa" . "http://melpa.milkbox.net/packages/"))
 
 ;; Add third-party repos
+(add-to-list 'package-archives gnu)
 (add-to-list 'package-archives marmalade)
-(add-to-list 'package-archives melpa t)
+(add-to-list 'package-archives melpa)
 
 (package-initialize)
 
@@ -16,7 +17,8 @@
 
 ;; packages I use
 (defvar user-packages
-  '(column-marker
+  '(flycheck
+    column-marker
     fill-column-indicator
     jinja2-mode
     markdown-mode
