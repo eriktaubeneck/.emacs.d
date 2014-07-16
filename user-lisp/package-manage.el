@@ -26,7 +26,11 @@
     nyan-mode
     color-theme-solarized
     sublime-themes
-    smartparens))
+    smartparens
+    haskell-mode
+    sass-mode
+    scss-mode
+    ))
 
 ;; install any packages that aren't found
 (dolist (p user-packages)

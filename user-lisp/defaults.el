@@ -24,6 +24,36 @@
 (global-set-key (kbd "C-c C-,") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-/") 'mc/mark-all-like-this)
 
+;; Bind return to automagically indent.
+(global-set-key (kbd "RET") 'newline-and-indent)
+
+;; Bind M-p/M-n to scroll-down/scroll-up
+(global-set-key (kbd "M-p") 'scroll-down)
+(global-set-key (kbd "M-n") 'scroll-up)
+
+;; Bind C-x n l to multiple cursors next line
+(global-set-key (kbd "C-x n l") 'mc/mark-next-like-this)
+
+;; Bind C-x p to last window
+(defun prev-window ()
+  (interactive)
+  (other-window -1))
+(global-set-key (kbd "C-x p") 'prev-window)
+
+;; Markdown mode
+(autoload 'markdown-mode "markdown-mode"
+     "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;; open to ~/notes.md
+(setq dir default-directory)
+(find-file (expand-file-name "~/notes.md"))
+(setq default-directory dir)
+
+
+
 ;; Jinja2 Mode
 (autoload 'jinja2-mode "jinja2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.jinja2$" . jinja2-mode))
