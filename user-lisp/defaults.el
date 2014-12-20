@@ -1,6 +1,10 @@
 ;; defaults.el
 ;; inital defaults to work with
 
+;; theme
+(load-theme 'solarized-dark t)
+
+
 ;; Don't ring bell
 (setq ring-bell-function #'ignore)
 
@@ -17,6 +21,8 @@
 ;; automatically delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; don't make backup files
+(setq make-backup-files nil)
 
 ;; Multiple cursors
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -47,12 +53,20 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; adoc-mode
+(autoload 'adoc-mode "adoc-mode"
+     "Major mode for editing ascidoc files" t)
+(add-to-list 'auto-mode-alist '("\\.asciidoc$" . adoc-mode))
+
+;; yaml-mode
+(autoload 'yaml-mode "yaml-mode"
+     "Major mode for editing yaml files" t)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
 ;; open to ~/notes.md
 (setq dir default-directory)
 (find-file (expand-file-name "~/notes.md"))
 (setq default-directory dir)
-
-
 
 ;; Jinja2 Mode
 (autoload 'jinja2-mode "jinja2-mode" nil t)

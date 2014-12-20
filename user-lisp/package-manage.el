@@ -23,13 +23,12 @@
     jinja2-mode
     markdown-mode
     multiple-cursors
-    nyan-mode
-    color-theme-solarized
     sublime-themes
     smartparens
     haskell-mode
     sass-mode
     scss-mode
+    adoc-mode
     ))
 
 ;; install any packages that aren't found

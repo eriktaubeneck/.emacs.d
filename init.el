@@ -30,3 +30,4 @@
 (require 'fill-column-indicator)
 
 (global-set-key [?\C-c ?m] 'column-marker-1)
+(put 'downcase-region 'disabled nil)
