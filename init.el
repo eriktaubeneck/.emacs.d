@@ -6,7 +6,6 @@
 (setq inhibit-startup-message t)
 
 ;; put .emacs.d and user-lisp directory on load-path
-(add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/user-lisp/")
 
 ;; Add local lib dir and recursively dir within lib
