@@ -65,7 +65,7 @@
 
 ;; open to ~/notes.md
 (setq dir default-directory)
-(find-file (expand-file-name "~/notes.md"))
+(find-file (expand-file-name "~/Dropbox (Personal)/notes.md"))
 (setq default-directory dir)
 
 ;; Jinja2 Mode
