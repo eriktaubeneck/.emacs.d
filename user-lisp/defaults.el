@@ -3,6 +3,7 @@
 
 ;; theme
 (load-theme 'solarized-dark t)
+(load-theme 'erik t)
 
 
 ;; Don't ring bell
