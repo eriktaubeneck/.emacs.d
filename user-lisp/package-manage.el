@@ -29,6 +29,7 @@
     sass-mode
     scss-mode
     adoc-mode
+    yaml-mode
     ))
 
 ;; install any packages that aren't found
