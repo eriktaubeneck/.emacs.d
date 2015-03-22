@@ -47,21 +47,27 @@
   (other-window -1))
 (global-set-key (kbd "C-x p") 'prev-window)
 
+;; turn on flyspell for text-mode
+(dolist (hook '(text-mode-hook))
+        (add-hook hook (lambda () (flyspell-mode 1))))
+(dolist (hook '(text-mode-hook))
+        (add-hook hook (lambda () (flyspell-buffer))))
+
 ;; Markdown mode
 (autoload 'markdown-mode "markdown-mode"
-     "Major mode for editing Markdown files" t)
+  "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; adoc-mode
 (autoload 'adoc-mode "adoc-mode"
-     "Major mode for editing ascidoc files" t)
+  "Major mode for editing ascidoc files" t)
 (add-to-list 'auto-mode-alist '("\\.asciidoc$" . adoc-mode))
 
 ;; yaml-mode
 (autoload 'yaml-mode "yaml-mode"
-     "Major mode for editing yaml files" t)
+  "Major mode for editing yaml files" t)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 ;; open to ~/notes.md
