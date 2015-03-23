@@ -47,6 +47,12 @@
   (other-window -1))
 (global-set-key (kbd "C-x p") 'prev-window)
 
+;; Bind C-x c to pbcopy
+(defun pbcopy-on-region ()
+  (interactive)
+  (shell-command-on-region (region-beginning) (region-end) "pbcopy"))
+(global-set-key (kbd "C-x c") 'pbcopy-on-region)
+
 ;; turn on flyspell for text-mode
 (dolist (hook '(text-mode-hook))
         (add-hook hook (lambda () (flyspell-mode 1))))
