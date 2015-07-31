@@ -22,6 +22,9 @@
 ;; automatically delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; require all files to end with a single newline
+(setq require-final-newline 't)
+
 ;; don't make backup files
 (setq make-backup-files nil)
 
