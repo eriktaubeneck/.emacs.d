@@ -103,3 +103,7 @@
       (all-completions "" obarray 'commandp))))))
 
 (provide 'defaults)
+
+;; adjust thresholds for splits when opening multiple files
+(setq split-height-threshold nil)
+(setq split-width-threshold 0)
