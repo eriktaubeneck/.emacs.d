@@ -12,7 +12,7 @@
 
 (package-initialize)
 
-(when (not package-archive-contents)
+(unless package-archive-contents
   (package-refresh-contents))
 
 ;; packages I use
@@ -30,6 +30,7 @@
     scss-mode
     adoc-mode
     yaml-mode
+    ag
     ))
 
 ;; install any packages that aren't found
