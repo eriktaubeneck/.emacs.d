@@ -31,6 +31,7 @@
     adoc-mode
     yaml-mode
     ag
+    flx-ido
     ))
 
 ;; install any packages that aren't found

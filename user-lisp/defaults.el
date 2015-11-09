@@ -89,9 +89,12 @@
 (add-to-list 'auto-mode-alist '("\\.jinja2$" . jinja2-mode))
 
 ;; ** IDO EVERYTHING!!!1!1!one!1
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
 (ido-mode 1)
+(setq ido-everywhere t)
+(flx-ido-mode 1)
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
+
 (global-set-key
  "\M-x"
  (lambda ()
@@ -102,8 +105,9 @@
       "M-x "
       (all-completions "" obarray 'commandp))))))
 
-(provide 'defaults)
-
 ;; adjust thresholds for splits when opening multiple files
 (setq split-height-threshold nil)
 (setq split-width-threshold 0)
+
+
+(provide 'defaults)
