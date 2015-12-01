@@ -44,6 +44,10 @@
 ;; Bind C-x n l to multiple cursors next line
 (global-set-key (kbd "C-x n l") 'mc/mark-next-like-this)
 
+;; Bind C-x g to ag
+
+(global-set-key (kbd "C-x g") 'ag)
+
 ;; Bind C-x p to last window
 (defun prev-window ()
   (interactive)
