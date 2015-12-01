@@ -26,6 +26,7 @@
 (require 'python-setup)
 (require 'julia-setup)
 (require 'indent-sql)
+(require 'useful-functions)
 ;;
 
 (require 'fill-column-indicator)
