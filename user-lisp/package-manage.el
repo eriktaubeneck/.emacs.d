@@ -10,8 +10,6 @@
 (add-to-list 'package-archives marmalade)
 (add-to-list 'package-archives melpa)
 
-(package-initialize)
-
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -32,11 +30,14 @@
     yaml-mode
     ag
     flx-ido
+    exec-path-from-shell
     ))
 
 ;; install any packages that aren't found
 (dolist (p user-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+(package-initialize)
 
 (provide 'package-manage)

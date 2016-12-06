@@ -3,7 +3,15 @@
 
 ;; theme
 (load-theme 'solarized-dark t)
-(load-theme 'erik t)
+(if (display-graphic-p)
+    (progn
+    ;; if graphic
+      (load-theme 'erik-gui t)
+      )
+    ;; else (optional)
+    (load-theme 'erik t)
+    )
+
 
 
 ;; Don't ring bell
@@ -61,10 +69,13 @@
 (global-set-key (kbd "C-x c") 'pbcopy-on-region)
 
 ;; turn on flyspell for text-mode
+(setq ispell-program-name "/usr/local/bin/ispell")
 (dolist (hook '(text-mode-hook))
         (add-hook hook (lambda () (flyspell-mode 1))))
 (dolist (hook '(text-mode-hook))
         (add-hook hook (lambda () (flyspell-buffer))))
+
+
 
 ;; Markdown mode
 (autoload 'markdown-mode "markdown-mode"
@@ -113,5 +124,8 @@
 (setq split-height-threshold nil)
 (setq split-width-threshold 0)
 
+;; exec-path-from-shell setup
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 (provide 'defaults)
