@@ -31,6 +31,7 @@
     ag
     flx-ido
     exec-path-from-shell
+    solarized-theme
     ))
 
 ;; install any packages that aren't found
