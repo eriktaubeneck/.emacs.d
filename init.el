@@ -34,9 +34,25 @@
 (require 'julia-setup)
 (require 'indent-sql)
 (require 'useful-functions)
+(require 'tramp-setup)
+(require 'xhp-mode)
 ;;
 
 (require 'fill-column-indicator)
 
 (global-set-key [?\C-c ?m] 'column-marker-1)
 (put 'downcase-region 'disabled nil)
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(package-selected-packages
+;;    (quote
+;;     (php-mode yaml-mode sublime-themes solarized-theme smartparens scss-mode sass-mode multiple-cursors markdown-mode jinja2-mode haskell-mode flycheck flx-ido fill-column-indicator exec-path-from-shell column-marker ag adoc-mode))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )

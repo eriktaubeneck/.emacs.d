@@ -94,6 +94,12 @@
   "Major mode for editing yaml files" t)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
+;; xhp-mode
+(setq magic-mode-alist (append '(("<\\?php\\s " . xhp-mode))
+                              magic-mode-alist))
+(setq auto-mode-alist (append '(("\\.php$" . xhp-mode))
+                              auto-mode-alist))
+
 ;; open to ~/notes.md
 (setq dir default-directory)
 (find-file (expand-file-name "~/Dropbox (Personal)/notes.md"))
