@@ -3,11 +3,23 @@
 
 ;; theme
 (load-theme 'solarized-dark t)
+;; theme for ein
+(defun switch-theme ()
+  "Switch default bg for ipython notebook."
+  ;;(face-remap-add-relative 'default '((:background "white"))))
+  (load-theme 'zenburn-theme t)
+  )
+(add-hook 'ein:notebook-multilang-mode-hook 'switch-theme)
+
+;; graphic vs terminal
 (if (display-graphic-p)
     (progn
     ;; if graphic
       (load-theme 'erik-gui t)
-      )
+      ;; SPACEMACS
+      ;;(setq spacemacs-start-directory "~/.emacs.d/spacemacs/")
+      ;;(load-file (concat spacemacs-start-directory "init.el"))
+    )
     ;; else (optional)
     (load-theme 'erik t)
     )
@@ -23,6 +35,9 @@
 
 ;; No fucking tabs
 (setq-default indent-tabs-mode nil)
+
+;; confirm exit
+(setq confirm-kill-emacs 'y-or-n-p)
 
 ;; show matching parens
 (show-paren-mode 1)
@@ -53,7 +68,6 @@
 (global-set-key (kbd "C-x n l") 'mc/mark-next-like-this)
 
 ;; Bind C-x g to ag
-
 (global-set-key (kbd "C-x g") 'ag)
 
 ;; Bind C-x p to last window
@@ -94,6 +108,12 @@
   "Major mode for editing yaml files" t)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
+;; r-mode
+(autoload 'r-mode "r-mode"
+  "Major mode for editing r files" t)
+(add-to-list 'auto-mode-alist '("\\.r$" . r-mode))
+
+
 ;; xhp-mode
 (setq magic-mode-alist (append '(("<\\?php\\s " . xhp-mode))
                               magic-mode-alist))
@@ -104,6 +124,7 @@
 (setq dir default-directory)
 (find-file (expand-file-name "~/Dropbox (Personal)/notes.md"))
 (setq default-directory dir)
+
 
 ;; Jinja2 Mode
 (autoload 'jinja2-mode "jinja2-mode" nil t)

@@ -77,6 +77,8 @@
 	   (ig-move-line-to-column (+ current tab-width))))))
 
 
+(defvar sql-indent-string "  ")
+
 (add-hook 'sql-mode-hook
           (function (lambda ()
                       (make-local-variable 'indent-line-function)
