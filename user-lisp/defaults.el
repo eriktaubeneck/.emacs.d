@@ -155,4 +155,8 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+;; default utf-8 for flake8
+(set-default-coding-systems 'utf-8)
+(setq flycheck-python-flake8-executable "python3")
+
 (provide 'defaults)

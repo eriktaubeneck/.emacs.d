@@ -16,7 +16,6 @@
 ;; packages I use
 (defvar user-packages
   '(flycheck
-    column-marker
     fill-column-indicator
     jinja2-mode
     markdown-mode
