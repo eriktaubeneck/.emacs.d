@@ -3,6 +3,7 @@
 
 ;; theme
 (load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
 ;; theme for ein
 (defun switch-theme ()
   "Switch default bg for ipython notebook."
@@ -157,6 +158,6 @@
 
 ;; default utf-8 for flake8
 (set-default-coding-systems 'utf-8)
-(setq flycheck-python-flake8-executable "python3")
+(setq flycheck-python-flake8-executable "python3.7")
 
 (provide 'defaults)
