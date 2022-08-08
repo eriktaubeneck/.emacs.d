@@ -1,10 +1,10 @@
 ;;======== configure package management ========
 (require 'package)
 
-(defvar marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
-(defvar gnu '("gnu" . "http://elpa.gnu.org/packages/"))
-(defvar melpa '("melpa" . "http://melpa.milkbox.net/packages/"))
-(defvar melpastable '("MELPA Stable" . "http://stable.melpa.org/packages/"))
+(defvar marmalade '("marmalade" . "https//marmalade-repo.org/packages/"))
+(defvar gnu '("gnu" . "https://elpa.gnu.org/packages/"))
+(defvar melpa '("melpa" . "https://melpa.org/packages/"))
+(defvar melpastable '("MELPA Stable" . "https://stable.melpa.org/packages/"))
 
 ;; Add third-party repos
 (add-to-list 'package-archives melpastable)
@@ -38,6 +38,7 @@
     ein
     nyan-mode
     zenburn-theme
+    rust-mode
     ))
 
 ;; install any packages that aren't found

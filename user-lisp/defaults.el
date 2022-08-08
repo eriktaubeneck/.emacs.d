@@ -27,6 +27,9 @@
 
 
 
+;; Set Font
+(add-to-list 'default-frame-alist '(font . "Monaco-16" ))
+
 ;; Don't ring bell
 (setq ring-bell-function #'ignore)
 
@@ -114,6 +117,10 @@
   "Major mode for editing r files" t)
 (add-to-list 'auto-mode-alist '("\\.r$" . r-mode))
 
+;; python-mode for .mpc files
+(autoload 'python-mode "python-mode"
+  "Major mode for editing mpc files" t)
+(add-to-list 'auto-mode-alist '("\\.mpc$" . python-mode))
 
 ;; xhp-mode
 (setq magic-mode-alist (append '(("<\\?php\\s " . xhp-mode))
@@ -130,6 +137,12 @@
 ;; Jinja2 Mode
 (autoload 'jinja2-mode "jinja2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.jinja2$" . jinja2-mode))
+
+;; rust-mode
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs$" . rust-mode))
+
+
 
 ;; ** IDO EVERYTHING!!!1!1!one!1
 (ido-mode 1)
@@ -158,6 +171,6 @@
 
 ;; default utf-8 for flake8
 (set-default-coding-systems 'utf-8)
-(setq flycheck-python-flake8-executable "python3.7")
+(setq flycheck-python-flake8-executable "python3")
 
 (provide 'defaults)
