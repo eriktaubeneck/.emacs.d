@@ -2,8 +2,8 @@
 ;; inital defaults to work with
 
 ;; theme
-(load-theme 'solarized-dark t)
-(load-theme 'solarized-light t)
+(load-theme 'dracula t)
+
 ;; theme for ein
 (defun switch-theme ()
   "Switch default bg for ipython notebook."
@@ -11,6 +11,14 @@
   (load-theme 'zenburn-theme t)
   )
 (add-hook 'ein:notebook-multilang-mode-hook 'switch-theme)
+
+;; font
+;; Set default font
+(set-face-attribute 'default nil
+                    :family "Hack"
+                    :height 160
+                    :weight 'normal
+                    :width 'normal)
 
 ;; graphic vs terminal
 (if (display-graphic-p)
@@ -171,6 +179,6 @@
 
 ;; default utf-8 for flake8
 (set-default-coding-systems 'utf-8)
-(setq flycheck-python-flake8-executable "python3")
+(setq flycheck-python-flake8-executable "flake8")
 
 (provide 'defaults)

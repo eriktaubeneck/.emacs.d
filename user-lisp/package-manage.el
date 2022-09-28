@@ -1,16 +1,16 @@
 ;;======== configure package management ========
 (require 'package)
 
-(defvar marmalade '("marmalade" . "https//marmalade-repo.org/packages/"))
-(defvar gnu '("gnu" . "https://elpa.gnu.org/packages/"))
-(defvar melpa '("melpa" . "https://melpa.org/packages/"))
-(defvar melpastable '("MELPA Stable" . "https://stable.melpa.org/packages/"))
+;; (defvar marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
+(defvar gnu '("gnu" . "http://elpa.gnu.org/packages/"))
+;; (defvar melpa '("melpa" . "http://melpa.milkbox.net/packages/"))
+(defvar melpastable '("MELPA Stable" . "http://stable.melpa.org/packages/"))
 
 ;; Add third-party repos
 (add-to-list 'package-archives melpastable)
 (add-to-list 'package-archives gnu)
-(add-to-list 'package-archives marmalade)
-(add-to-list 'package-archives melpa)
+;; (add-to-list 'package-archives marmalade)
+;; (add-to-list 'package-archives melpa)
 
 
 ;; packages I use
@@ -20,7 +20,6 @@
     jinja2-mode
     markdown-mode
     multiple-cursors
-    sublime-themes
     smartparens
     haskell-mode
     sass-mode
@@ -35,10 +34,12 @@
     request
     python-mode
     smartrep
-    ein
     nyan-mode
     zenburn-theme
+    dracula-theme
     rust-mode
+    lsp-mode
+    solidity-mode
     ))
 
 ;; install any packages that aren't found
