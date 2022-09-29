@@ -136,9 +136,9 @@
 (setq auto-mode-alist (append '(("\\.php$" . xhp-mode))
                               auto-mode-alist))
 
-;; open to ~/notes.md
+;; open to iCloud Drive/notes.md
 (setq dir default-directory)
-(find-file (expand-file-name "~/Dropbox (Personal)/notes.md"))
+(find-file (expand-file-name "~/Library/Mobile Documents/com~apple~CloudDocs/notes.md"))
 (setq default-directory dir)
 
 
