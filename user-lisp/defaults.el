@@ -36,7 +36,7 @@
 
 
 ;; Set Font
-(add-to-list 'default-frame-alist '(font . "Monaco-16" ))
+(add-to-list 'default-frame-alist '(font . "Hack-16" ))
 
 ;; Don't ring bell
 (setq ring-bell-function #'ignore)
