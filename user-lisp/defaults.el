@@ -95,7 +95,7 @@
 (global-set-key (kbd "C-x c") 'pbcopy-on-region)
 
 ;; turn on flyspell for text-mode
-(setq ispell-program-name "/usr/local/bin/ispell")
+(setq ispell-program-name "ispell")
 (dolist (hook '(text-mode-hook))
         (add-hook hook (lambda () (flyspell-mode 1))))
 (dolist (hook '(text-mode-hook))
