@@ -7,3 +7,5 @@ lib/markdown-mode/.gitignore
 lib/markdown-mode/tests/*
 tramp
 ido.last
+.lsp-session*
+network-security.data
