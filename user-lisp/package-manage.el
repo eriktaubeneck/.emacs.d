@@ -3,14 +3,15 @@
 
 ;; (defvar marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
 (defvar gnu '("gnu" . "http://elpa.gnu.org/packages/"))
-;; (defvar melpa '("melpa" . "http://melpa.milkbox.net/packages/"))
+(defvar melpa '("melpa" . "https://melpa.org/packages/") t)
+
 (defvar melpastable '("MELPA Stable" . "http://stable.melpa.org/packages/"))
 
 ;; Add third-party repos
 (add-to-list 'package-archives melpastable)
 (add-to-list 'package-archives gnu)
+(add-to-list 'package-archives melpa)
 ;; (add-to-list 'package-archives marmalade)
-;; (add-to-list 'package-archives melpa)
 
 
 ;; packages I use
@@ -40,6 +41,7 @@
     rust-mode
     lsp-mode
     solidity-mode
+    ligature
     ))
 
 ;; install any packages that aren't found

@@ -35,6 +35,7 @@
 (require 'sql-indent)
 (require 'useful-functions)
 (require 'tramp-setup)
+(require 'user-fonts)
 ;; (require 'xhp-mode)
 ;;
 

@@ -12,14 +12,6 @@
   )
 (add-hook 'ein:notebook-multilang-mode-hook 'switch-theme)
 
-;; font
-;; Set default font
-(set-face-attribute 'default nil
-                    :family "Hack"
-                    :height 160
-                    :weight 'normal
-                    :width 'normal)
-
 ;; graphic vs terminal
 (if (display-graphic-p)
     (progn
@@ -34,9 +26,6 @@
     )
 
 
-
-;; Set Font
-(add-to-list 'default-frame-alist '(font . "Hack-16" ))
 
 ;; Don't ring bell
 (setq ring-bell-function #'ignore)
