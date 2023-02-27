@@ -26,13 +26,11 @@
     )
 
 
-
 ;; Don't ring bell
 (setq ring-bell-function #'ignore)
 
 ;; Always display line numbers and column numbers
-(setq line-number-mode t)
-(setq column-number-mode t)
+(global-display-line-numbers-mode)
 
 ;; No fucking tabs
 (setq-default indent-tabs-mode nil)
