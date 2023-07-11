@@ -43,6 +43,14 @@
     solidity-mode
     ligature
     powerline
+    typescript-mode
+    rjsx-mode
+    tree-sitter
+    tree-sitter-langs
+    company
+    coverlay
+    origami
+    graphql-mode
     ))
 
 ;; install any packages that aren't found

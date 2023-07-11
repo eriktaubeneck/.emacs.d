@@ -89,6 +89,11 @@
         (add-hook hook (lambda () (flyspell-buffer))))
 
 
+;; tsx mode
+(autoload 'tsx-mode "tsx-mode"
+  "Major mode for editing txs files" t)
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . tsx-mode))
 
 ;; Markdown mode
 (autoload 'markdown-mode "markdown-mode"
@@ -137,7 +142,8 @@
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs$" . rust-mode))
 
-
+;; js default 2 space intent
+(setq js-indent-level 2)
 
 ;; ** IDO EVERYTHING!!!1!1!one!1
 (ido-mode 1)

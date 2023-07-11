@@ -36,6 +36,7 @@
 (require 'useful-functions)
 (require 'tramp-setup)
 (require 'user-fonts)
+(require 'tsx-mode)
 ;; (require 'xhp-mode)
 ;;
 
