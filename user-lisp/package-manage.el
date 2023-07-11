@@ -51,6 +51,7 @@
     coverlay
     origami
     graphql-mode
+    company-jedi
     ))
 
 ;; install any packages that aren't found

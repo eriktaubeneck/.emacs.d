@@ -25,6 +25,8 @@
                  (not (equal f ".")))
         (add-to-list 'load-path name)))))
 
+;; Enable company mode globally
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;; Specific settings
 (require 'package-manage)

@@ -10,5 +10,17 @@
 
 (setq-default flycheck-flake8-maximum-line-length 88)
 
+(setq jedi:complete-on-dot t) ; Enable autocompletion after a dot
+(setq jedi:use-shortcuts t) ; Enable keybindings for Jedi commands
+
+;; Specify the Python interpreter to use (optional)
+(setq python-shell-interpreter "python3") ; Replace with the path to your desired Python interpreter
+
+;; Hook company-jedi to Python mode
+(add-hook 'python-mode-hook
+          (lambda ()
+            (add-to-list 'company-backends 'company-jedi)))
+
+(setq company-idle-delay 0.1)
 
 (provide 'python-setup)
