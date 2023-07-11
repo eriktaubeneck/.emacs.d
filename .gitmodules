@@ -4,3 +4,6 @@
 [submodule "lib/tsi.el"]
 	path = lib/tsi.el
 	url = https://github.com/orzechowskid/tsi.el.git
+[submodule "lib/tsx-mode.el"]
+	path = lib/tsx-mode.el
+	url = https://github.com/orzechowskid/tsx-mode.el.git
