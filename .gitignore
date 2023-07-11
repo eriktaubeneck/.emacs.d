@@ -10,3 +10,5 @@ ido.last
 .lsp-session*
 network-security.data
 .supress-font-warning
+eln-cache
+.cache
