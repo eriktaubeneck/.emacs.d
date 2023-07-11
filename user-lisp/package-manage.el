@@ -42,6 +42,7 @@
     lsp-mode
     solidity-mode
     ligature
+    powerline
     ))
 
 ;; install any packages that aren't found
