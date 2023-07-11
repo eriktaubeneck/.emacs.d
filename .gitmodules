@@ -1,3 +1,6 @@
 [submodule "lib/tree-sitter-css-in-js"]
 	path = lib/tree-sitter-css-in-js
 	url = https://github.com/orzechowskid/tree-sitter-css-in-js.git
+[submodule "lib/tsi.el"]
+	path = lib/tsi.el
+	url = https://github.com/orzechowskid/tsi.el.git
