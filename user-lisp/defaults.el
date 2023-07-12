@@ -50,6 +50,12 @@
 ;; don't make backup files
 (setq make-backup-files nil)
 
+;; vundo for undo
+(when (package-installed-p 'vundo)
+  (require 'vundo)
+  (setq vundo-glyph-alist vundo-unicode-symbols))
+(global-set-key (kbd "C-x u") 'vundo)
+
 ;; Multiple cursors
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C-c C-.") 'mc/mark-next-like-this)

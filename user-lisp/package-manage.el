@@ -52,6 +52,7 @@
     origami
     graphql-mode
     company-jedi
+    vundo
     ))
 
 ;; install any packages that aren't found
