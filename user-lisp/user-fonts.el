@@ -1,7 +1,5 @@
 ;; Set Font
 
-(defvar font-size "16")
-
 (defun font-size-string (font font-size)
   (concatenate 'string font "-" font-size))
 

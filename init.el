@@ -1,4 +1,5 @@
-;; Turn off mouse interface early in startup to avoid momentary display
+;; do this first to size the window quickly
+(defvar font-size "16")
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
