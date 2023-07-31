@@ -40,6 +40,7 @@
 (require 'tramp-setup)
 (require 'user-fonts)
 (require 'tsx-mode)
+(require 'rust-setup)
 ;; (require 'xhp-mode)
 ;;
 

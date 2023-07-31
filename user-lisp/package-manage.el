@@ -53,6 +53,11 @@
     graphql-mode
     company-jedi
     vundo
+    lsp-mode
+    lsp-ui
+    lsp-treemacs
+    lsp-ivy
+    dap-mode
     ))
 
 ;; install any packages that aren't found
