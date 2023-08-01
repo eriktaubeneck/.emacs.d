@@ -100,6 +100,7 @@
   "Major mode for editing txs files" t)
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-mode))
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . tsx-mode))
+(add-hook 'tsx-mode-hook 'prettier-js-mode)
 
 ;; Markdown mode
 (autoload 'markdown-mode "markdown-mode"

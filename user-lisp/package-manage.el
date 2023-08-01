@@ -58,6 +58,7 @@
     lsp-treemacs
     lsp-ivy
     dap-mode
+    prettier-js
     ))
 
 ;; install any packages that aren't found
