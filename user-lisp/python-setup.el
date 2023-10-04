@@ -14,7 +14,10 @@
 (setq jedi:use-shortcuts t) ; Enable keybindings for Jedi commands
 
 ;; Specify the Python interpreter to use (optional)
-(setq python-shell-interpreter "python3") ; Replace with the path to your desired Python interpreter
+(if (executable-find "pythonforemacs")
+    ;; incase system python is not what I want to use...
+    (setq python-shell-interpreter "pythonforemacs")
+  (setq python-shell-interpreter "python3"))
 
 ;; Hook company-jedi to Python mode
 (add-hook 'python-mode-hook
