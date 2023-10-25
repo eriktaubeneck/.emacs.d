@@ -43,10 +43,7 @@
     solidity-mode
     ligature
     powerline
-    typescript-mode
     rjsx-mode
-    tree-sitter
-    tree-sitter-langs
     company
     coverlay
     origami
@@ -59,6 +56,7 @@
     lsp-ivy
     dap-mode
     prettier-js
+    corfu
     ))
 
 ;; install any packages that aren't found
