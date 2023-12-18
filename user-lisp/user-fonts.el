@@ -1,7 +1,8 @@
 ;; Set Font
 
 (defun font-size-string (font font-size)
-  (concatenate 'string font "-" font-size))
+  (when (and font font-size)
+    (concat font "-" font-size)))
 
 ;; list of fonts, in order of preference
 (defvar fonts
