@@ -58,6 +58,7 @@
     prettier-js
     corfu
     cl-libify
+    blacken
     ))
 
 ;; install any packages that aren't found

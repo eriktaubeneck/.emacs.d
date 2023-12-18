@@ -5,6 +5,7 @@
 (define-key python-mode-map (kbd "s-<return>") 'python-shell-send-region)
 (add-hook 'python-mode-hook 'fci-mode)
 (add-hook 'python-mode-hook 'flycheck-mode)
+(add-hook 'python-mode-hook 'blacken-mode)
 
 (set-default-coding-systems 'utf-8)
 
