@@ -57,6 +57,7 @@
     dap-mode
     prettier-js
     corfu
+    cl-libify
     ))
 
 ;; install any packages that aren't found
