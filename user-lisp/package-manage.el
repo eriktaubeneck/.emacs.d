@@ -3,8 +3,7 @@
 
 ;; (defvar marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
 (defvar gnu '("gnu" . "http://elpa.gnu.org/packages/"))
-(defvar melpa '("melpa" . "https://melpa.org/packages/") t)
-
+(defvar melpa '("melpa" . "https://melpa.org/packages/"))
 (defvar melpastable '("MELPA Stable" . "http://stable.melpa.org/packages/"))
 
 ;; Add third-party repos
