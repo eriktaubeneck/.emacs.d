@@ -1,16 +1,7 @@
 ;; defaults.el
 ;; inital defaults to work with
 
-;; theme
-(load-theme 'dracula t)
 
-;; theme for ein
-(defun switch-theme ()
-  "Switch default bg for ipython notebook."
-  ;;(face-remap-add-relative 'default '((:background "white"))))
-  (load-theme 'zenburn-theme t)
-  )
-(add-hook 'ein:notebook-multilang-mode-hook 'switch-theme)
 
 ;; graphic vs terminal
 (if (display-graphic-p)
