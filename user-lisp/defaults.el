@@ -86,14 +86,6 @@
         (add-hook hook (lambda () (flyspell-buffer))))
 
 
-;; tsx mode
-;; see details here: https://www.masteringemacs.org/article/how-to-get-started-tree-sitter
-;; tsx-mode uses tree-sitter, so we want to override the default
-(setq major-mode-remap-alist
-      '((tsx-ts-mode . tsx-mode)))
-
-(add-hook 'tsx-mode-hook 'prettier-js-mode)
-
 ;; Markdown mode
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)

@@ -35,14 +35,13 @@
 (require 'defaults)
 (require 'python-setup)
 (require 'julia-setup)
-;; (require 'indent-sql)
 (require 'sql-indent)
 (require 'useful-functions)
 (require 'tramp-setup)
 (require 'user-fonts)
-(require 'tsx-mode)
+;;(require 'tsx-mode)
+(require 'typescript-setup)
 (require 'rust-setup)
-;; (require 'xhp-mode)
 ;;
 
 (require 'fill-column-indicator)
