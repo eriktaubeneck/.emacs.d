@@ -30,8 +30,8 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; Specific settings
-(require 'cl-libify)
 (require 'package-manage)
+(require 'cl-libify)
 (require 'defaults)
 (require 'python-setup)
 (require 'julia-setup)
