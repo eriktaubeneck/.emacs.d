@@ -58,6 +58,7 @@
     corfu
     cl-libify
     blacken
+    python-isort
     ))
 
 ;; install any packages that aren't found

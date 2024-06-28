@@ -6,6 +6,7 @@
 (add-hook 'python-mode-hook 'fci-mode)
 (add-hook 'python-mode-hook 'flycheck-mode)
 (add-hook 'python-mode-hook 'blacken-mode)
+(add-hook 'python-mode-hook 'python-isort-on-save-mode)
 
 (set-default-coding-systems 'utf-8)
 
