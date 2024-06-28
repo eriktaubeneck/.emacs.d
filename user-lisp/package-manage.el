@@ -37,7 +37,7 @@
     nyan-mode
     zenburn-theme
     dracula-theme
-    rust-mode
+    rustic
     lsp-mode
     solidity-mode
     ligature
