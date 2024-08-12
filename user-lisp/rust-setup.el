@@ -13,6 +13,7 @@
 (add-to-list 'image-types 'svg)
 
 (require 'lsp-mode)
+(setq lsp-rust-all-features t)
 (setq lsp-rust-server 'rust-analyzer)
 (add-hook 'rust-mode-hook #'lsp)
 (setq lsp-log-io t)
