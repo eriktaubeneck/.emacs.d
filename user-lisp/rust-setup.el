@@ -1,19 +1,24 @@
-(require 'rust-mode)
-(add-hook 'rust-mode-hook
-          (lambda () (setq indent-tabs-mode nil)))
-(setq rust-format-on-save t)
-(define-key rust-mode-map (kbd "C-c C-c") 'rust-run)
-;; Adjust flycheck to check only on save
-(add-hook 'rust-mode-hook (lambda ()
-                            (setq flycheck-check-syntax-automatically '(save mode-enabled))))
-;; lsp-mode configuration
-(require 'lsp-mode)
-(setq lsp-rust-all-features t)
-(setq lsp-rust-server 'rust-analyzer)
-(setq lsp-diagnostics-provider :flycheck)  ; Use flycheck as the diagnostics provider
-(add-hook 'rust-mode-hook #'lsp)
-(setq lsp-log-io t)
+(use-package rust-mode
+  :ensure t
+  :init
+  (setq rust-mode-treesitter-derive t))
 
-;; lsp-mode bug fix related to image types
-(add-to-list 'image-types 'svg)
+(use-package rustic
+  :ensure t
+  :after (rust-mode)
+  :config
+  (setq rustic-format-on-save t)
+  :custom
+  (rustic-cargo-use-last-stored-arguments t))
+
+(defun rustic-mode-auto-save-hook ()
+  "Enable auto-saving in rustic-mode buffers."
+  (when buffer-file-name
+    (setq-local compilation-ask-about-save nil)))
+(add-hook 'rustic-mode-hook 'rustic-mode-auto-save-hook)
+
+(use-package rustic
+  :custom
+  (rustic-analyzer-command '("rustup" "run" "stable" "rust-analyzer")))
+
 (provide 'rust-setup)

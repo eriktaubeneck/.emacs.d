@@ -32,7 +32,6 @@
 ;; Specific settings
 (require 'package-manage)
 (require 'cl-libify)
-(require 'defaults)
 (require 'python-setup)
 (require 'julia-setup)
 (require 'sql-indent)
@@ -42,6 +41,7 @@
 ;;(require 'tsx-mode)
 (require 'typescript-setup)
 (require 'rust-setup)
+(require 'defaults)
 ;;
 
 (require 'fill-column-indicator)

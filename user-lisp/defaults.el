@@ -129,9 +129,9 @@
 (autoload 'jinja2-mode "jinja2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.jinja2$" . jinja2-mode))
 
-;; rust-mode
-(autoload 'rust-mode "rust-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.rs$" . rust-mode))
+;; rustic-mode
+(autoload 'rustic-mode "rustic-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs$" . rustic-mode))
 
 ;; js default 2 space intent
 (setq js-indent-level 2)
