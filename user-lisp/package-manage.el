@@ -59,6 +59,10 @@
     cl-libify
     blacken
     python-isort
+    yapfify
+    elpy
+    pyenv-mode
+    projectile
     ))
 
 ;; install any packages that aren't found

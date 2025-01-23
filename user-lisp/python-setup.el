@@ -28,4 +28,21 @@
 
 (setq company-idle-delay 0.1)
 
+
+(use-package elpy
+  :ensure t
+  :config
+  (elpy-enable)
+  (add-hook 'python-mode-hook 'projectile-mode))
+
+(defun my/set-pyvenv-to-project-venv ()
+  "Automatically activate the project's .venv virtual environment."
+  (let ((venv-path (expand-file-name ".venv" (projectile-project-root))))
+    (when (file-directory-p venv-path)
+      (pyvenv-activate venv-path)
+      (message "Activated virtual environment: %s" venv-path))))
+
+(add-hook 'python-mode-hook 'my/set-pyvenv-to-project-venv)
+(add-hook 'projectile-after-switch-project-hook 'my/set-pyenv-to-project-venv)
+
 (provide 'python-setup)

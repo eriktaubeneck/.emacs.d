@@ -44,6 +44,12 @@
 (require 'defaults)
 ;;
 
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-mode +1))
+(setq projectile-project-search-path '("~/workspace"))
+
 (require 'fill-column-indicator)
 
 (put 'downcase-region 'disabled nil)
@@ -62,5 +68,6 @@
    '("4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" "fee7287586b17efbfda432f05539b58e86e059e78006ce9237b8732fde991b4c" "0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" "0f18329d5b523ebc75bc6e4b0f04d650a0899ce1d9a0c961cd19585664f6c5e2" "fe1c13d75398b1c8fd7fdd1241a55c286b86c3e4ce513c4292d01383de152cb7" "d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" "67e998c3c23fe24ed0fb92b9de75011b92f35d3e89344157ae0d544d50a63a72" default))
  '(package-selected-packages
    '(python-isort cl-libify markdown-mode prettier-js deferred jedi company-jedi rjsx-mode powerline dracula-theme flymake-python-pyflakes nyan-mode yaml-mode ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org sublime-themes spaceline solarized-theme smex smartrep scss-mode sass-mode restart-emacs rainbow-delimiters python-mode popwin persp-mode pcre2el paradox org-bullets open-junk-file neotree multiple-cursors move-text mmm-mode markdown-toc macrostep lorem-ipsum linum-relative link-hint jinja2-mode ivy-hydra info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make haskell-mode google-translate golden-ratio gh-md flycheck flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav ein dumb-jump define-word counsel-projectile column-marker column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent ag adoc-mode adaptive-wrap ace-window ace-link))
+ '(safe-local-variable-values '((eval progn (yapf-mode 1) (blacken-mode -1))))
  '(tramp-verbose 6 nil (tramp) "Enable remote command traces")
  '(warning-suppress-types '((comp))))
