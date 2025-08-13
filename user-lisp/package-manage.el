@@ -63,6 +63,7 @@
     elpy
     pyenv-mode
     projectile
+    swift-mode
     ))
 
 ;; install any packages that aren't found

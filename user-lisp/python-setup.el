@@ -5,8 +5,9 @@
 (define-key python-mode-map (kbd "s-<return>") 'python-shell-send-region)
 (add-hook 'python-mode-hook 'fci-mode)
 (add-hook 'python-mode-hook 'flycheck-mode)
-(add-hook 'python-mode-hook 'blacken-mode)
 (add-hook 'python-mode-hook 'python-isort-on-save-mode)
+(add-hook 'python-mode-hook 'blacken-mode)
+
 
 (set-default-coding-systems 'utf-8)
 
@@ -29,9 +30,11 @@
 (setq company-idle-delay 0.1)
 
 
+(flymake-mode)
 (use-package elpy
   :ensure t
   :config
+  (remove-hook 'elpy-modules 'elpy-module-flymake)
   (elpy-enable)
   (add-hook 'python-mode-hook 'projectile-mode))
 
