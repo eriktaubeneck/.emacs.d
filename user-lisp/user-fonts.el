@@ -31,8 +31,8 @@
 
 
 (let ((font (find-installed-font fonts)))
-  (set-frame-font (font-size-string font font-size))
-  )
+  (when font
+    (set-frame-font (font-size-string font font-size))))
 
 
 
