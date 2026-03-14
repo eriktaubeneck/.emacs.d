@@ -64,6 +64,8 @@
     pyenv-mode
     projectile
     swift-mode
+    reformatter
+    ruff-format
     ))
 
 ;; install any packages that aren't found
@@ -74,5 +76,4 @@
     )
   )
 
-(package-initialize)
 (provide 'package-manage)
