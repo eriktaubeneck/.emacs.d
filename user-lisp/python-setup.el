@@ -9,84 +9,100 @@
 
 (set-default-coding-systems 'utf-8)
 
-;; Eglot with strict Pyright (configured in Emacs only)
+;; Tree-sitter for better syntax highlighting
+;; (requires python tree-sitter grammar: M-x treesit-install-language-grammar RET python)
+(when (treesit-available-p)
+  (add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode))
+  ;; Carry over hooks to python-ts-mode
+  (dolist (hook '(eglot-ensure fci-mode python-isort-on-save-mode
+                  ruff-format-on-save-mode flycheck-mode
+                  my/set-pyvenv-to-project-venv))
+    (add-hook 'python-ts-mode-hook hook)))
+
+;; Eglot with Pyright for real-time diagnostics, navigation, and completions
 (use-package eglot
-  :hook (python-mode . eglot-ensure)
+  :hook ((python-mode python-ts-mode) . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs
-               '(python-mode . ("pyright-langserver" "--stdio")))
+               '((python-mode python-ts-mode) . ("pyright-langserver" "--stdio")))
 
   (setq eglot-autoshutdown t
         eglot-sync-connect nil)
 
-  ;; Strict Pyright configuration
+  ;; Pyright in "basic" mode (faster than strict) scoped to open files only.
+  ;; mypy --strict via flycheck is the authority for deep type checking.
   (setq-default eglot-workspace-configuration
                 '(:python
                   (:analysis
-                   (:typeCheckingMode "strict"
-                    :diagnosticMode "workspace"
+                   (:typeCheckingMode "basic"
+                    :diagnosticMode "openFilesOnly"
                     :autoImportCompletions t
                     :useLibraryCodeForTypes t
                     :autoSearchPaths t
-                    :strictListInference t
-                    :strictDictionaryInference t
-                    :strictParameterNoneValue t
                     :diagnosticSeverityOverrides
-                    (:reportMissingTypeStubs "none"
-                     :reportUnknownParameterType "warning"
-                     :reportUnknownArgumentType "warning"
-                     :reportUnknownMemberType "none"
-                     :reportUnknownVariableType "warning"
-                     :reportUntypedFunctionDecorator "warning"
-                     :reportUntypedClassDecorator "warning"
-                     :reportUntypedBaseClass "error"
-                     :reportUnusedVariable "warning"
-                     :reportUnusedImport "warning"))))))
+                    (:reportUnusedImport "warning"
+                     :reportMissingImports "error"))))))
 
-;; Flymake (integrates automatically with Eglot)
+;; Flymake — integrates with eglot for real-time LSP diagnostics
 (use-package flymake
-  :hook (python-mode . flymake-mode)
+  :hook ((python-mode python-ts-mode) . flymake-mode)
   :config
   (setq flymake-no-changes-timeout 0.3)
-
-  ;; Better key bindings
   (define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
   (define-key flymake-mode-map (kbd "M-p") 'flymake-goto-prev-error)
   (define-key flymake-mode-map (kbd "C-c ! l") 'flymake-show-diagnostics-buffer))
 
-;; Flycheck for mypy only
+;; Flycheck for mypy (deep type checking on save)
 (use-package flycheck
   :ensure t
-  :hook (python-mode . flycheck-mode)
+  :hook ((python-mode python-ts-mode) . flycheck-mode)
   :config
   (setq flycheck-python-mypy-executable "mypy"
         flycheck-python-mypy-args '("--strict")
         flycheck-flake8-maximum-line-length 88
-        ;; Disable all checkers except mypy (Pyright handles the rest via Flymake)
         flycheck-disabled-checkers '(python-flake8 python-pylint python-pycompile python-pyright))
 
   ;; Only enable mypy checker
-  (setq flycheck-checkers '(python-mypy)))
+  (setq flycheck-checkers '(python-mypy))
 
-;; eldoc-box for beautiful hover documentation
-;; eldoc-box for beautiful hover documentation AT POINT
+  ;; Navigate errors
+  (define-key flycheck-mode-map (kbd "M-n") 'flycheck-next-error)
+  (define-key flycheck-mode-map (kbd "M-p") 'flycheck-previous-error)
+  (define-key flycheck-mode-map (kbd "C-c ! l") 'flycheck-list-errors))
+
+;; eldoc-box for hover documentation at point
 (use-package eldoc-box
   :ensure t
   :hook (eglot-managed-mode . eldoc-box-hover-mode)
   :config
   (setq eldoc-box-max-pixel-width 800
         eldoc-box-max-pixel-height 600
-        ;; Show box near the cursor instead of top-right corner
         eldoc-box-position-function #'eldoc-box--default-at-point-position-function
-        ;; Clear with C-g
         eldoc-box-clear-with-C-g t)
 
-  ;; Match the font size to your default buffer font
   (set-face-attribute 'eldoc-box-body nil
-                      :inherit 'default)  ; Inherit from default face
+                      :inherit 'default)
 
+  ;; Eglot keybindings
   (define-key eglot-mode-map (kbd "C-c h") 'eldoc-box-help-at-point)
-  (define-key eglot-mode-map (kbd "C-c H") 'eldoc-box-eglot-help-at-point))
+  (define-key eglot-mode-map (kbd "C-c H") 'eldoc-box-eglot-help-at-point)
+
+  ;; Go to definition / references
+  (define-key eglot-mode-map (kbd "M-.") 'xref-find-definitions)
+  (define-key eglot-mode-map (kbd "M-,") 'xref-go-back)
+  (define-key eglot-mode-map (kbd "M-?") 'xref-find-references)
+
+  ;; Rename and code actions
+  (define-key eglot-mode-map (kbd "C-c r") 'eglot-rename)
+  (define-key eglot-mode-map (kbd "C-c a") 'eglot-code-actions))
+
+(global-set-key (kbd "<s-mouse-1>") 'xref-find-definitions-at-mouse)
+
+;; imenu — jump to any function/class in the file
+(global-set-key (kbd "C-c i") 'imenu)
+
+;; Show current function in modeline
+(which-function-mode 1)
 
 ;; Company mode for completion
 (use-package company
@@ -103,8 +119,6 @@
   :ensure t
   :config
   (projectile-mode +1))
-
-(add-hook 'python-mode-hook 'projectile-mode)
 
 ;; Virtual environment support
 (use-package pyvenv

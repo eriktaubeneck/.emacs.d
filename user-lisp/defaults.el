@@ -157,9 +157,13 @@
 (setq split-height-threshold nil)
 (setq split-width-threshold 0)
 
-;; exec-path-from-shell setup
+;; exec-path-from-shell setup (non-interactive to avoid slow shell startup)
 (when (memq window-system '(mac ns))
+  (setq exec-path-from-shell-arguments '("-l"))
   (exec-path-from-shell-initialize))
+
+;; ~/.local/bin is set in .zshrc (not .zprofile) so exec-path-from-shell misses it
+(add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
 ;; default utf-8 for flake8
 (set-default-coding-systems 'utf-8)

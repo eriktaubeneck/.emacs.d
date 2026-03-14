@@ -32,12 +32,15 @@
 
 (let ((font (find-installed-font fonts)))
   (when font
-    (set-frame-font (font-size-string font font-size))))
+    (set-frame-font (font-size-string font font-size))
+    ;; Ensure line numbers scale with the frame font
+    (set-face-attribute 'line-number nil :font (font-size-string font font-size))
+    (set-face-attribute 'line-number-current-line nil :font (font-size-string font font-size))))
 
 
 
 ;; ligatures!
-(autoload 'ligatures "ligatures" nil t)
+(require 'ligature)
 
 ;; Enable the www ligature in every possible major mode
 (ligature-set-ligatures 't '("www"))

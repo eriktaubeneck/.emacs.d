@@ -135,8 +135,8 @@
 
 (defun julia-in-brackets ()
   (let ((before (buffer-substring (line-beginning-position) (point))))
-    (> (julia-strcount before ?[)
-       (julia-strcount before ?]))))
+    (> (julia-strcount before ?\[)
+       (julia-strcount before ?\]))))
 
 (defun julia-at-keyword (kw-list)
   ; not a keyword if used as a field name, X.word, or quoted, :word
