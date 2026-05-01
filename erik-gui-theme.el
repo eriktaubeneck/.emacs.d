@@ -1,8 +1,8 @@
 (deftheme erik-gui
   "Created 2015-01-05.")
 
-;; theme
-(load-theme 'dracula t)
+;; theme is now loaded by auto-dark-mode in init.el — dracula for dark,
+;; solo-jazz for light, tracking macOS appearance.
 (setq nyan-animate-nyancat t)
 (setq nyan-wavy-trail t)
 (nyan-mode)
